@@ -9,13 +9,13 @@ public class UserWithOptionalTest
 {
 
 	@Test
-	public void givenUserNameIsNull_whenCreatingAnInstance_thenThrowError()
+	public void givenIdIsNull_whenCreatingAnInstance_thenThrowError()
 	{
-		assertThatThrownBy(() -> new UserWithOptional().setName(null)).isExactlyInstanceOf(NoDataProvidedException.class);
+		assertThatThrownBy(() -> new UserWithOptional().setId(null)).isExactlyInstanceOf(NoDataProvidedException.class);
 	}
 	
 	@Test
-	public void givenUserNameIsNotNull_whenCreatingAnInstance_thenThrowErrorIsNotExpected()
+	public void givenIdIsNotNull_whenCreatingAnInstance_thenThrowErrorIsNotExpected()
 	{
 		UserWithOptional user = new UserWithOptional();
 		user.setId(1L);

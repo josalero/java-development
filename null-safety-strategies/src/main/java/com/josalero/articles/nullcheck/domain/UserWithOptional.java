@@ -23,7 +23,7 @@ public class UserWithOptional
 	
 	public void setName(String name) 
 	{
-		Optional.ofNullable(id).orElseThrow(() -> new NoDataProvidedException("Name was not provided"));
+		Optional.ofNullable(name).orElse("None");
 		this.name = name;
 	}
 }
