@@ -1,20 +1,8 @@
-build
+# Ignore Gradle project-specific cache directory
 .gradle
-*.iml
-*.ipr
-*.iws
-.project
-.classpath
-.settings
+
+# Ignore Gradle build output directory
+build
 bin
-.DS_Store
-*.log
-*~
-.idea
-generated
-.env
-out
-classes
-.java-version
-.metadata
-gradle.properties
+target
+*/.DS_Store
