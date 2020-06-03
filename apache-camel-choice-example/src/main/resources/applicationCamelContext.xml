@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       ">
+    <camelContext xmlns="http://camel.apache.org/schema/spring" >
+    
+    	<dataFormats>
+    		<json id="usersType" library="Jackson" unmarshalTypeName="com.josalero.articles.apachecamelchooseexample.model.Users"/>
+    	</dataFormats>
+        <route >
+            <from uri="direct:start" />
+            <log message="Incoming Json: ${body}"/>
+            <unmarshal>
+            	<custom ref="usersType" />
+            </unmarshal>
+            <split>
+                <simple>${body.users}</simple>
+                <to uri="direct:choice" />
+            </split>        
+        </route>
+        
+        <route >
+            <from uri="direct:choice" />
+  	        <choice>
+	            <when>
+	                <simple>${body.name} contains 'a'</simple>
+	                <log message="Name contains 'a': ${body}"/>
+	                <to uri="mock:end"/>
+	            </when>
+	            <otherwise>
+	                <log message="Name Not contains 'a': ${body}"/>
+	                <to uri="mock:end"/>
+	            </otherwise>
+	        </choice>      
+        </route>
+    </camelContext>
+ 
+</beans>
