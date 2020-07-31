@@ -10,7 +10,7 @@ public class WireMockInitializer implements ApplicationContextInitializer<Config
 
 	@Override
 	public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
-		WireMockServer wireMockServer = new WireMockServer(9090);
+		WireMockServer wireMockServer = new WireMockServer(9091);
 		wireMockServer.start();
 
 		configurableApplicationContext.getBeanFactory().registerSingleton("wireMockServer", wireMockServer);

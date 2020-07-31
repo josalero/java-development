@@ -6,7 +6,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.apache.http.entity.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -26,7 +25,7 @@ import com.josalero.articles.springwiremockendpointtest.SpringWiremockEndpointTe
 import com.josalero.articles.springwiremockendpointtest.model.FakeDataGenerator;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-@ContextConfiguration(initializers = { WireMockInitializer.class }, classes = { TestConfig.class,
+@ContextConfiguration(initializers = { WireMockInitializer.class }, classes = { 
 		SpringWiremockEndpointTestApplication.class })
 @AutoConfigureMockMvc
 public class DashboardResourceIntegrationTest {

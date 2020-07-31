@@ -54,4 +54,5 @@ public class DashboardResource
 		
 		return Optional.ofNullable(writers).map(list-> ResponseEntity.ok().body(list)).orElse(ResponseEntity.notFound().build());
 	}
+	
 }
